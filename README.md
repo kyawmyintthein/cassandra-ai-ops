@@ -6,6 +6,8 @@ AI-based casualty and root cause investigation agent for Cassandra and applicati
 
 This repository describes an AI-based casualty and root cause investigation agent for Cassandra and application environments. It stays intentionally lightweight and focuses on AI assistant guidance, operating conventions, and reusable skill documents for working with Codex or ChatGPT on Cassandra-related tasks.
 
+Current backend guidance favors a multi-module Python monorepo built with `uv`, `FastAPI`, YAML-driven configuration, `SQLAlchemy`, PostgreSQL, `Alembic`, OpenAPI/Swagger, and event-driven integration through a queue abstraction with a PostgreSQL-backed implementation first.
+
 ## Project Files
 
 - `AGENTS.md` defines repository-level rules, git workflow, and working style.
@@ -17,8 +19,9 @@ This repository describes an AI-based casualty and root cause investigation agen
 
 1. Read `AGENTS.md`.
 2. Read the relevant file in `skills/`.
-3. Use a dedicated branch for each task, preferably in a separate git worktree.
-4. Keep changes minimal, practical, and task-focused.
+3. Ask clarifying questions before substantial work when important decisions are still open, and explain the reasoning behind major choices.
+4. Use a dedicated branch for each task, preferably in a separate git worktree.
+5. Keep changes minimal, practical, and task-focused.
 
 ## GitHub
 
