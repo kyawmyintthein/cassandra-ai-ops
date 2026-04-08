@@ -18,14 +18,16 @@ This repository contains AI assistant coding guidance only.
 
 - Use a dedicated branch for each feature, fix, or task.
 - Prefer a separate git worktree for each active task.
+- Create a shared `.worktree` folder under the projects root and keep task worktrees there.
 - Default branch names to `codex/<task>` unless the user asks for a different scheme.
 - Do not mix unrelated work on the same branch.
 
 Typical flow:
 
 ```bash
-git worktree add ../cassandra-ai-ops-<task> -b codex/<task>
-cd ../cassandra-ai-ops-<task>
+mkdir -p ../.worktree
+git worktree add ../.worktree/cassandra-ai-ops-<task> -b codex/<task>
+cd ../.worktree/cassandra-ai-ops-<task>
 ```
 
 ## Skill Usage
