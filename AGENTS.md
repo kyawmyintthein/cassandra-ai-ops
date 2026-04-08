@@ -8,6 +8,12 @@ This repository contains AI assistant coding guidance only.
 - Do not generate unnecessary code, folders, or project scaffolding.
 - Prefer small documentation updates over broad rewrites.
 
+## Collaboration Defaults
+
+- Ask clarifying questions before taking substantial actions when requirements, scope, or architecture choices are still open.
+- Explain the reasoning behind important implementation choices before or alongside the proposed change.
+- Follow `AGENTS.md` first, then the relevant skill file, then the user request.
+
 ## Git Workflow
 
 - Use a dedicated branch for each feature, fix, or task.
@@ -35,6 +41,21 @@ Use these skills:
 - `skills/python.md` for Python implementation and backend structure
 - `skills/langgraph.md` for LangGraph workflows, agents, and orchestration
 - `skills/openai-llm.md` for OpenAI LLM integration, prompting, and model usage
+
+## Backend Defaults
+
+For Python backend services in this repository, prefer:
+
+- a multi-module monorepo structure with clear module boundaries
+- `uv` for environment and dependency management
+- `FastAPI` for HTTP APIs
+- YAML-driven configuration
+- `SQLAlchemy` with PostgreSQL for persistence
+- `Alembic` for schema migrations
+- OpenAPI and Swagger for API documentation
+- event-driven integration with a PostgreSQL-backed queue for `v1`, behind an abstraction that can later support Kafka or SQS
+
+Model backend modules so domain logic, APIs, queue adapters, and shared contracts can evolve independently without collapsing into one service package.
 
 ## Working Style
 
