@@ -1,3 +1,20 @@
+Metadata-Version: 2.4
+Name: cassandra-ai-ops
+Version: 0.1.0
+Summary: Intake service for Cassandra AI Ops
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: alembic<2.0.0,>=1.16.0
+Requires-Dist: fastapi<1.0.0,>=0.116.0
+Requires-Dist: psycopg[binary]<4.0.0,>=3.2.0
+Requires-Dist: pydantic<3.0.0,>=2.11.0
+Requires-Dist: pyyaml<7.0.0,>=6.0.2
+Requires-Dist: sqlalchemy<3.0.0,>=2.0.41
+Requires-Dist: uvicorn<1.0.0,>=0.35.0
+Provides-Extra: dev
+Requires-Dist: httpx<1.0.0,>=0.28.0; extra == "dev"
+Requires-Dist: pytest<9.0.0,>=8.4.0; extra == "dev"
+
 # cassandra-ai-ops
 
 AI-based casualty and root cause investigation agent for Cassandra and application environments.
@@ -7,38 +24,6 @@ AI-based casualty and root cause investigation agent for Cassandra and applicati
 This repository describes an AI-based casualty and root cause investigation agent for Cassandra and application environments. It stays intentionally lightweight and focuses on AI assistant guidance, operating conventions, and reusable skill documents for working with Codex or ChatGPT on Cassandra-related tasks.
 
 Current backend guidance favors a multi-module Python monorepo built with `uv`, `FastAPI`, YAML-driven configuration, `SQLAlchemy`, PostgreSQL, `Alembic`, OpenAPI/Swagger, and event-driven integration through a queue abstraction with a PostgreSQL-backed implementation first.
-
-## Intake Service
-
-The intake service now lives under `services/intake_service` and exposes local API documentation through FastAPI:
-
-- Swagger UI at `/docs`
-- ReDoc at `/redoc`
-- OpenAPI JSON at `/openapi.json`
-
-From the repository root, local developer commands are available through `just`:
-
-```bash
-just setup
-just migrate
-just run
-```
-
-After the server starts, open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for Swagger UI.
-
-The database URL supports environment-variable expansion, so local credentials can stay outside the YAML files. Set:
-
-```bash
-export INTAKE_DB_USER=your_postgres_user
-export INTAKE_DB_PASSWORD=your_postgres_password
-```
-
-If you use a local override config such as `services/intake_service/config/local.yaml`, you can run:
-
-```bash
-just migrate-local
-just run-config services/intake_service/config/local.yaml
-```
 
 ## Project Files
 

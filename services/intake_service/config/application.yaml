@@ -1,0 +1,15 @@
+service:
+  name: intake-service
+  environment: local
+
+api:
+  host: 0.0.0.0
+  port: 8000
+
+database:
+  url: postgresql+psycopg://${INTAKE_DB_USER}:${INTAKE_DB_PASSWORD}@localhost:5432/cassandra_ai_ops
+
+queue:
+  backend: postgres
+  poll_interval_seconds: 5
+  batch_size: 10

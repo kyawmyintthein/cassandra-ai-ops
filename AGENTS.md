@@ -25,9 +25,9 @@ This repository contains AI assistant coding guidance only.
 Typical flow:
 
 ```bash
-mkdir -p ../.worktree
-git worktree add ../.worktree/cassandra-ai-ops-<task> -b codex/<task>
-cd ../.worktree/cassandra-ai-ops-<task>
+mkdir -p ./.worktree/<branch-name>
+git worktree add ./.worktree/<branch-name> -b codex/<task>
+cd ./.worktree/<branch-name>
 ```
 
 ## Skill Usage
